@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBPF Metrics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>eBPF Metrics Dashboard</h1>
+    </header>
+    <main>
+        <section id="metrics">
+            <h2>Metrics</h2>
+            <div id="metrics-data"></div>
+        </section>
+        <section id="logs">
+            <h2>Logs</h2>
+            <div id="logs-data"></div>
+        </section>
+        <section id="activity">
+            <h2>Generate Activity</h2>
+            <button id="generate-activity">Generate Activity</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 eBPF Metrics Dashboard</p>
+    </footer>
+    <script src="dashboard.js"></script>
+    <script src="activity.js"></script>
+</body>
+</html>

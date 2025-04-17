@@ -1,0 +1,19 @@
+FROM ubuntu:20.04
+
+# Install dependencies for eBPF development
+RUN apt-get update && apt-get install -y \
+    clang llvm libbpf-dev build-essential iproute2 wget linux-libc-dev linux-headers-generic \
+    && apt-get clean
+
+# Set the working directory
+WORKDIR /ebpf
+
+# Copy eBPF source files into the container
+COPY src/ebpf/ /ebpf/
+
+# Compile eBPF programs during the build process
+RUN clang -O2 -target bpf -c /ebpf/metrics.c -o /ebpf/metrics.o && \
+    clang -O2 -target bpf -c /ebpf/logs.c -o /ebpf/logs.o
+
+# Default command to keep the container running
+CMD ["bash"]

@@ -1,0 +1,23 @@
+{
+  "name": "ebpf-metrics-dashboard",
+  "version": "1.0.0",
+  "description": "A web dashboard for visualizing eBPF metrics and logs.",
+  "main": "src/server/app.py",
+  "scripts": {
+    "start": "python src/server/app.py",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'Test step not defined'"
+  },
+  "dependencies": {
+    "flask": "^2.0.1",
+    "flask-cors": "^3.0.10",
+    "requests": "^2.25.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "author": "Alex Mercado",
+  "license": "MIT"
+}

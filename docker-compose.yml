@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  ebpf-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.ebpf
+    privileged: true  # Required for eBPF programs to interact with the kernel
+    volumes:
+      - /Users/alexmarket/Desktop/ebpf_experiment:/ebpf  # Map the volume to your desktop directory
+    stdin_open: true  # Keep the container open for interaction
+    tty: true         # Enable a terminal interface
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web  # Dockerfile for the Flask web server
+    ports:
+      - "5001:5000"  # Map port 5000 on the host to port 5000 in the container
+    volumes:
+      - /Users/alexmarket/Desktop/ebpf_experiment:/app  # Map the app directory for Flask
+    environment:
+      FLASK_ENV: development  # Enable Flask development mode
